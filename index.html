@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Project</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div>
+      <h1 class="title">
+        Nice
+        <div class="line"></div>
+      </h1>
+      <div class="heroLinks">
+        <p class="link">Link 1</p>
+        <p class="link">Link 2</p>
+        <p class="link">Link 3</p>
+      </div>
+    </div>
+  </section>
+  <section class="cards">
+    <div class="card">
+      <h3>Card 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam
+        malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+    <div class="card">
+      <h3>Card 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam
+        malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+    <div class="card">
+      <h3>Card 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam
+        malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </section>
+
+  <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.from(".title", {
+      y: 200,
+      duration: 0.5,
+      opacity: 0,
+      delay: 1
+    })
+
+    gsap.from(".line", {
+      width: 0,
+      duration: 0.75,
+      delay: 1.4,
+      ease: "power1.out"
+    })
+
+    gsap.from(".link", {
+      x: 400,
+      duration: 0.3,
+      opacity: 0,
+      delay: 2,
+      stagger: 0.2,
+      ease: "power1.out"
+    })
+
+    gsap.to(".link:not(:first-child)", {
+      duration: 0.5,
+      opacity: 0.4,
+      delay: 3
+    })
+
+    gsap.from(".card", {
+      x: 200,
+      duration: 1,
+      delay: 0.5,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power1.out",
+      scrollTrigger: { trigger: ".cards" }
+    })
+  </script>
+</body>
+
+</html>
