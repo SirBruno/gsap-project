@@ -73,13 +73,13 @@
       opacity: 0,
       stagger: 0.1,
       ease: "power1.out"
-    })
+    }, "-=0.5" /* offset this by minus .5s */)
 
     tl.to(".link:not(:first-child)", {
-      duration: 0.5,
+      duration: 0.4,
       opacity: 0.4,
       ease: "power1.out"
-    })
+    }, "+=0.3" /* add .3s offset here */)
 
     tl.from(".card", {
       x: 200,
