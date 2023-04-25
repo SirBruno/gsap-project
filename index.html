@@ -50,40 +50,40 @@
   <script>
 
     gsap.registerPlugin(ScrollTrigger);
+
+    var tl = gsap.timeline()
     
-    gsap.from(".title", {
+    tl.from(".title", {
       y: 200,
       duration: 0.5,
       opacity: 0,
-      delay: 1
+      delay: 1,
+      ease: 'power1.out'
     })
 
-    gsap.from(".line", {
+    tl.from(".line", {
       width: 0,
-      duration: 0.75,
-      delay: 1.4,
+      duration: 0.5,
       ease: "power1.out"
     })
 
-    gsap.from(".link", {
+    tl.from(".link", {
       x: 400,
       duration: 0.3,
       opacity: 0,
-      delay: 2,
-      stagger: 0.2,
+      stagger: 0.1,
       ease: "power1.out"
     })
 
-    gsap.to(".link:not(:first-child)", {
+    tl.to(".link:not(:first-child)", {
       duration: 0.5,
       opacity: 0.4,
-      delay: 3
+      ease: "power1.out"
     })
 
-    gsap.from(".card", {
+    tl.from(".card", {
       x: 200,
       duration: 1,
-      delay: 0.5,
       opacity: 0,
       stagger: 0.2,
       ease: "power1.out",
