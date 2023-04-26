@@ -16,13 +16,15 @@
 </head>
 
 <body>
+  <span class="loader"></span>
   <div class="loader0"></div>
   <div class="loader1"></div>
   <div class="loader2"></div>
+  <div class="lineOpener"></div>
   <section class="hero">
     <div>
       <h1 class="title">
-        Nice
+        GSAP
         <div class="line"></div>
       </h1>
       <div class="heroLinks">
@@ -39,27 +41,34 @@
 
     var tl = gsap.timeline()
 
-    tl.from(".loader0", {
-      rotation: 360,
-      ease: 'none',
-      duration: 3,
-      repeat: -1
-    })
-
-    tl.to(".loader0", {
+    tl.to(".loader", {
+      delay: 2,
       opacity: 0,
       display: 'none'
     })
 
+    tl.to(".lineOpener", {
+      width: 0,
+      duration: 1,
+      ease: "power3.in"
+    })
+
     tl.to(".loader1", {
       height: 0,
-      duration: 1
+      duration: 1,
+      ease: "power4.inOut"
     })
 
     tl.to(".loader2", {
       height: 0,
-      duration: 1
+      duration: 1,
+      ease: "power4.inOut"
     }, "<")
+
+    tl.to(".title, .link, .line", {
+      position: 'relative',
+      duration: 0
+    })
     
     tl.from(".title", {
       y: 200,
