@@ -26,6 +26,7 @@ body {
   margin: 0;
   font-family: 'Fira Sans', sans-serif;
   background: #1a1a1a;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -102,4 +103,39 @@ body {
   z-index: 99998;
   top: calc(50vh - 2px);
   background: #fff;
+}
+
+/* IMG reveal on hover */
+
+.imageReveal {
+  padding: 200px;
+  background: #fff;
+  border: 2px solid red;
+  position: relative;
+}
+
+.imageReveal__container {
+  border: 2px solid blue;
+  position: relative;
+  height: 60px;
+}
+
+.imageReveal p {
+  font-size: 24px;
+  z-index: 10;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+.imageReveal__image {
+  height: 300px;
+  width: 300px;
+  background: red;
+  position: absolute;
+  top: -120px;
+  scale: 0;
 }

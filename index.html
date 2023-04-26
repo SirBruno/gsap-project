@@ -34,6 +34,14 @@
       </div>
     </div>
   </section>
+  <section class="imageReveal">
+    <div class="imageReveal__container">
+      <div class="imageReveal__image"></div>
+      <p>Link 1</p>
+      <!-- <p>Link 2</p> -->
+      <!-- <p>Link 3</p> -->
+    </div>
+  </section>
 
   <script>
 
@@ -42,7 +50,7 @@
     var tl = gsap.timeline()
 
     tl.to(".loader", {
-      delay: 2,
+      delay: 1,
       opacity: 0,
       display: 'none'
     })
@@ -98,6 +106,18 @@
       stagger: 0.2,
       scrollTrigger: { trigger: ".cards" }
     })
+
+    const animation = gsap.to(document.querySelectorAll(".imageReveal__image"), {
+      opacity: 1,
+      duration: 0.2,
+      scale: 1,
+      ease: "ease-in-out"
+    });
+
+    document.querySelectorAll(".imageReveal p")[0].addEventListener("mouseenter", () => animation.play());
+    document.querySelectorAll(".imageReveal p")[0].addEventListener("mouseleave", () => animation.reverse());
+
+    animation.reverse();
   </script>
 </body>
 
