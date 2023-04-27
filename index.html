@@ -36,10 +36,12 @@
   </section>
   <section class="imageReveal">
     <div class="imageReveal__container">
-      <div class="imageReveal__image"></div>
-      <p>Link 1</p>
-      <!-- <p>Link 2</p> -->
-      <!-- <p>Link 3</p> -->
+      <div class="imageReveal__image tokyo"></div>
+      <p>Tokyo</p>
+    </div>
+    <div class="imageReveal__container">
+      <div class="imageReveal__image new-york"></div>
+      <p>New York</p>
     </div>
   </section>
 
@@ -107,34 +109,36 @@
       scrollTrigger: { trigger: ".cards" }
     })
 
-    const animation = gsap.to(document.querySelectorAll(".imageReveal__image"), {
-      opacity: 1,
-      duration: 0.4,
-      scale: 1,
-      ease: "ease-in-out"
-    });
+    // Image reveal on hover (ref: ds-k.site)
 
-    document.querySelectorAll(".imageReveal p")[0].addEventListener("mouseenter", () => animation.play());
-    document.querySelectorAll(".imageReveal p")[0].addEventListener("mouseleave", () => animation.reverse());
+    for (i = 0; i < document.querySelectorAll(".imageReveal p").length; i++) {
 
-    animation.reverse();
+      const animation = gsap.to(document.querySelectorAll(".imageReveal__image")[i], {
+        opacity: 1,
+        scale: 1,
+        ease: "power1.in"
+      });
 
-    var xTo = gsap.quickTo(".imageReveal__image", "x", {duration: 0.4, ease: "power3"});
-    var yTo = gsap.quickTo(".imageReveal__image", "y", {duration: 0.4, ease: "power3"});
+      document.querySelectorAll(".imageReveal p")[i].addEventListener("mouseenter", () => animation.play());
+      document.querySelectorAll(".imageReveal p")[i].addEventListener("mouseleave", () => animation.reverse());
+
+      animation.reverse();
+
+      document.querySelectorAll(".imageReveal p")[i].addEventListener("mousemove", moveText);
+    }
+
+    var xTo = gsap.quickTo(".imageReveal__container div", "x", {duration: 0.4, ease: "power3"});
+    var yTo = gsap.quickTo(".imageReveal__container div", "y", {duration: 0.4, ease: "power3"});
 
     //   to move image along with cursor
     function moveText(e) {
-      gsap.to(".imageReveal__image", {
+      gsap.to(".imageReveal__container div", {
         x: e.offsetX,
-        y: e.offsetY - 12,
+        y: e.offsetY - 24,
         duration: 0.4,
         ease: "power3"
       })
-      // xTo(e.clientX);
-      // yTo(e.clientY);
     }
-
-    document.querySelectorAll(".imageReveal p")[0].addEventListener("mousemove", moveText);
   </script>
 </body>
 
