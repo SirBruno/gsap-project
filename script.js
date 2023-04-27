@@ -96,21 +96,16 @@ function moveText(e) {
   })
 }
 
-document.querySelectorAll(".hero > div")[0].addEventListener("mouseenter", moveText2);
 document.querySelectorAll(".hero > div")[0].addEventListener("mouseleave", () => gsap.to(".background-image", {
   x: 0,
   y: 0,
   duration: 0.5,
-  ease: "power3"
+  transform: "none"
 }));
 
-function moveText2(e) {
-  gsap.to(".background-image", {
-    x: (e.pageX - window.innerWidth / 2) / 5,
-    y: (e.pageY - window.innerHeight / 2) / 5,
-    duration: 1,
-    ease: "power3"
-  })
-}
-
-document.querySelectorAll(".hero > div")[0].addEventListener("mousemove", moveText2);
+document.querySelectorAll(".hero > div")[0].addEventListener("mousemove", (e) => gsap.to(".background-image", {
+  x: (e.pageX - window.innerWidth / 2) / 5,
+  y: (e.pageY - window.innerHeight / 2) / 5,
+  duration: 1,
+  ease: "power3"
+}));
