@@ -40,6 +40,11 @@ tl.to(".title, .link, .line", {
   duration: 0
 })
 
+tl.from(".background-image", {
+  y: 200,
+  opacity: 0
+})
+
 tl.from(".title", {
   y: 200,
   opacity: 0
@@ -90,3 +95,22 @@ function moveText(e) {
     ease: "power3"
   })
 }
+
+document.querySelectorAll(".hero > div")[0].addEventListener("mouseenter", moveText2);
+document.querySelectorAll(".hero > div")[0].addEventListener("mouseleave", () => gsap.to(".background-image", {
+  x: 0,
+  y: 0,
+  duration: 0.5,
+  ease: "power3"
+}));
+
+function moveText2(e) {
+  gsap.to(".background-image", {
+    x: (e.pageX - window.innerWidth / 2) / 5,
+    y: (e.pageY - window.innerHeight / 2) / 5,
+    duration: 1,
+    ease: "power3"
+  })
+}
+
+document.querySelectorAll(".hero > div")[0].addEventListener("mousemove", moveText2);

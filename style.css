@@ -49,6 +49,17 @@ body {
   flex-direction: column;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
+}
+
+.background-image {
+  width: 70vh;
+  height: 70vh;
+  position: absolute;
+  top: calc(50% - 35vh);
+  background: url('/assets/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero > div {
