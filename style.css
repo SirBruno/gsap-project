@@ -120,21 +120,20 @@ body {
 }
 
 .imageReveal__container {
-  border: 2px solid blue;
   position: relative;
   height: 60px;
   display: flex;
   flex-direction: row;
   width: 100%;
+  border-bottom: thin solid #444;
+  padding-bottom: 50px;
 }
 
 .imageReveal p {
   font-size: 48px;
   font-weight: 200;
-  z-index: 10;
   margin: 0;
   padding: 0;
-  border: 2px solid red;
   display: flex;
   align-self: center;
   line-height: 1;
@@ -143,24 +142,26 @@ body {
   color: #fff;
   opacity: .75;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 10px;
+  z-index: 1;
 }
 
 .imageReveal p:hover {
   color: #fff;
   transition: .1s;
   opacity: 1;
+  z-index: 3;
 }
 
 .imageReveal__image {
-  height: 500px;
-  width: 100%;
-  max-width: 700px;
+  height: 50vh;
+  width: 50vw;
+  max-width: 1000px;
   position: absolute;
   scale: 0.75;
   opacity: 0;
   filter: brightness(75%);
-  top: -220px;
+  top: calc(-24vh);
   left: -100px;
 }
 
@@ -168,10 +169,24 @@ body {
 .imageReveal__image.tokyo {
   background: url(/assets/tokyo.jpg);
   background-size: cover;
-
 }
 
 .imageReveal__image.new-york {
   background: url(/assets/new-york.jpg);
+  background-size: cover;
+}
+
+.imageReveal__image.los-angeles {
+  background: url(/assets/los-angeles.jpg);
+  background-size: cover;
+}
+
+.imageReveal__image.amsterdam {
+  background: url(/assets/amsterdam.jpg);
+  background-size: cover;
+}
+
+.imageReveal__image.paris {
+  background: url(/assets/paris.jpg);
   background-size: cover;
 }

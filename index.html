@@ -43,6 +43,18 @@
       <div class="imageReveal__image new-york"></div>
       <p>New York</p>
     </div>
+    <div class="imageReveal__container">
+      <div class="imageReveal__image los-angeles"></div>
+      <p>Los Angeles</p>
+    </div>
+    <div class="imageReveal__container">
+      <div class="imageReveal__image amsterdam"></div>
+      <p>Amsterdam</p>
+    </div>
+    <div class="imageReveal__container">
+      <div class="imageReveal__image paris"></div>
+      <p>Paris</p>
+    </div>
   </section>
 
   <script>
@@ -114,9 +126,11 @@
     for (i = 0; i < document.querySelectorAll(".imageReveal p").length; i++) {
 
       const animation = gsap.to(document.querySelectorAll(".imageReveal__image")[i], {
+        zIndex: 2,
         opacity: 1,
         scale: 1,
-        ease: "power1.in"
+        ease: "power1.in",
+        duration: 0.3
       });
 
       document.querySelectorAll(".imageReveal p")[i].addEventListener("mouseenter", () => animation.play());
@@ -126,9 +140,6 @@
 
       document.querySelectorAll(".imageReveal p")[i].addEventListener("mousemove", moveText);
     }
-
-    var xTo = gsap.quickTo(".imageReveal__container div", "x", {duration: 0.4, ease: "power3"});
-    var yTo = gsap.quickTo(".imageReveal__container div", "y", {duration: 0.4, ease: "power3"});
 
     //   to move image along with cursor
     function moveText(e) {
