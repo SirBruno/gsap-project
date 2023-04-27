@@ -27,21 +27,33 @@ body {
   font-family: 'Fira Sans', sans-serif;
   background: #111;
   overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loaderContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
 }
 
 .hero {
+  background: #111;
   display: flex;
   align-items: center;
   height: 100vh;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .hero > div {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  position: relative;
 }
 
 .title {
@@ -49,19 +61,20 @@ body {
   font-size: 10rem;
   display: block;
   margin: 0;
-  position: absolute;
+  font-weight: 700;
 }
 
 .line {
   background: #fff;
-  width: 100%;
   height: 2px;
-  position: absolute;
 }
 
 .heroLinks {
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: -75px;
 }
 
 .link {

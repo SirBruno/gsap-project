@@ -16,17 +16,19 @@
 </head>
 
 <body>
-  <span class="loader"></span>
-  <div class="loader0"></div>
-  <div class="loader1"></div>
-  <div class="loader2"></div>
-  <div class="lineOpener"></div>
+  <section class="loaderContainer">
+    <span class="loader"></span>
+    <div class="loader0"></div>
+    <div class="loader1"></div>
+    <div class="loader2"></div>
+    <div class="lineOpener"></div>
+  </section>
   <section class="hero">
     <div>
-      <h1 class="title">
+      <span class="title">
         GSAP
         <div class="line"></div>
-      </h1>
+      </span>
       <div class="heroLinks">
         <p class="link">Link 1</p>
         <p class="link">Link 2</p>
@@ -87,11 +89,20 @@
       ease: "power4.inOut"
     }, "<")
 
+    tl.to(".loaderContainer", {
+      zIndex: -1
+    })
+
+    tl.to("body", {
+      height: "auto",
+      overflow: "visible"
+    })
+
     tl.to(".title, .link, .line", {
       position: 'relative',
       duration: 0
     })
-    
+
     tl.from(".title", {
       y: 200,
       opacity: 0
@@ -141,7 +152,7 @@
       document.querySelectorAll(".imageReveal p")[i].addEventListener("mousemove", moveText);
     }
 
-    //   to move image along with cursor
+    // to move image along with cursor
     function moveText(e) {
       gsap.to(".imageReveal__container div", {
         x: e.offsetX,
