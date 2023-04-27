@@ -109,7 +109,7 @@
 
     const animation = gsap.to(document.querySelectorAll(".imageReveal__image"), {
       opacity: 1,
-      duration: 0.2,
+      duration: 0.4,
       scale: 1,
       ease: "ease-in-out"
     });
@@ -118,6 +118,23 @@
     document.querySelectorAll(".imageReveal p")[0].addEventListener("mouseleave", () => animation.reverse());
 
     animation.reverse();
+
+    var xTo = gsap.quickTo(".imageReveal__image", "x", {duration: 0.4, ease: "power3"});
+    var yTo = gsap.quickTo(".imageReveal__image", "y", {duration: 0.4, ease: "power3"});
+
+    //   to move image along with cursor
+    function moveText(e) {
+      gsap.to(".imageReveal__image", {
+        x: e.offsetX,
+        y: e.offsetY - 12,
+        duration: 0.4,
+        ease: "power3"
+      })
+      // xTo(e.clientX);
+      // yTo(e.clientY);
+    }
+
+    document.querySelectorAll(".imageReveal p")[0].addEventListener("mousemove", moveText);
   </script>
 </body>
 

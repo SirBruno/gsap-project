@@ -110,7 +110,6 @@ body {
 .imageReveal {
   padding: 200px;
   background: #fff;
-  border: 2px solid red;
   position: relative;
 }
 
@@ -118,16 +117,20 @@ body {
   border: 2px solid blue;
   position: relative;
   height: 60px;
+  display: flex;
 }
 
 .imageReveal p {
   font-size: 24px;
   z-index: 10;
-  position: relative;
   margin: 0;
   padding: 0;
+  border: 2px solid red;
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-self: center;
+  line-height: 1;
+  cursor: pointer;
 }
 
 
@@ -136,6 +139,8 @@ body {
   width: 300px;
   background: red;
   position: absolute;
+  scale: 0.75;
+  opacity: 0;
   top: -120px;
-  scale: 0;
+  left: -150px;
 }
