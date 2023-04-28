@@ -86,7 +86,8 @@ for (i = 0; i < document.querySelectorAll(".imageReveal p").length; i++) {
   document.querySelectorAll(".imageReveal p")[i].addEventListener("mousemove", moveText);
 }
 
-// to move image along with cursor
+// Hero's interactive image
+
 function moveText(e) {
   gsap.to(".imageReveal__container div", {
     x: e.offsetX,
@@ -96,16 +97,19 @@ function moveText(e) {
   })
 }
 
-document.querySelectorAll(".hero > div")[0].addEventListener("mouseleave", () => gsap.to(".background-image", {
+document.querySelectorAll(".hero")[0].addEventListener("mouseleave", () => gsap.to(".background-image", {
   x: 0,
   y: 0,
-  duration: 0.5,
-  transform: "none"
+  transform: "none",
+  delay: 0.1
 }));
 
-document.querySelectorAll(".hero > div")[0].addEventListener("mousemove", (e) => gsap.to(".background-image", {
+document.querySelectorAll(".hero")[0].addEventListener("mousemove", (e) => gsap.to(".background-image", {
   x: (e.pageX - window.innerWidth / 2) / 5,
   y: (e.pageY - window.innerHeight / 2) / 5,
-  duration: 1,
-  ease: "power3"
+  duration: 0.5,
+  ease: "power3",
+  skewX: -(e.pageX - window.innerWidth / 2) / 100,
+  skewY: -(e.pageY - window.innerHeight / 2) / 100,
+  rotation: -(e.pageX - window.innerWidth / 2) / 50,
 }));
